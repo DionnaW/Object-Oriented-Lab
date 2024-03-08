@@ -31,3 +31,23 @@ belongings: {
 };
 adventurer.roll()
 //this output said Robin rolled a 19, then 13, then 2, then 20
+
+//PART 2 CLASS FANTASY
+
+//creating a character class and giving it the roll method
+class Character {
+    constructor (name) {
+        this.name = name;
+        this.health = 100;
+        this.inventory = [];
+    }
+
+    roll(mod = 0) {
+        const result = Math.floor(Math.random() * 20) + 1 + mod;
+        console.log(`${this.name} rolled a ${result}.`)
+    }
+}
+
+//creating a new instance of the Character class to see what the roll would say
+// const adventurer = new Character("Robin");
+// adventurer.roll();
