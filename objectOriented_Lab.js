@@ -42,13 +42,13 @@ class Character {
         this.inventory = [];
     }
 
-    roll(mod = 0) {
-        const result = Math.floor(Math.random() * 20) + 1 + mod;
-        console.log(`${this.name} rolled a ${result}.`)
-    }
+    // roll(mod = 0) {
+        // const result = Math.floor(Math.random() * 20) + 1 + mod;
+        // console.log(`${this.name} rolled a ${result}.`)
+    // }
 }
-
-//creating a new instance of the Character class to see what the roll would say; robin rolled 12
+// 
+// creating a new instance of the Character class to see what the roll would say; robin rolled 12
 // const adventurer = new Character("Robin");
 // adventurer.roll();
 
@@ -62,27 +62,27 @@ robin.companion.companion.type = "Flea";
 robin.companion.companion.inventory = ["small hat", "sunglasses"];
 
 //checking some companion rolls
-console.log(robin);
-robin.companion.roll(); //robin had 8 & leo had 12
-robin.companion.companion.roll(); //robin had 9, leo 18, and frank 15
+// console.log(robin);
+// robin.companion.roll(); //robin had 8 & leo had 12
+// robin.companion.companion.roll(); //robin had 9, leo 18, and frank 15
 
 //PART 3 CLASS FEATURES
 //extending a class, "child" inherits all paernt props
 //create a Adventurer class
-// class Adventurer extends Character {
-    // constructor (name, role) {
-        // super(name);
+class Adventurer extends Character {
+    constructor (name, role) {
+        super(name);
         // Adventurers have specialized roles
-        // this.role = role;
+        this.role = role;
         // every Adventurer starts with a bed and 50 gold coins
-        // this.inventory.push("bedroll", "50 gold coins");
-    // }
+        this.inventory.push("bedroll", "50 gold coins");
+    }
     // Adventurers have the ability to scout ahead of them
-    // scout () {
-        // console.log(`${this.name} is scouting ahead...`);
-        // super.roll();
-    // }
-// }
+    scout () {
+        console.log(`${this.name} is scouting ahead...`);
+        super.roll();
+    }
+}
 //I get errors when i run all these codes below???
 // const adventurer = new Adventurer("Robin", "Rogue");  //can't use adventurer, already defined
 // adventurer.scout();  //same with adventurer and scout undefined
@@ -107,8 +107,8 @@ class Characters {
         console.log(`${this.name} rolled a ${result}.` );
     }
 }
-// 
-class Adventurer extends Character {
+
+class Adventurers extends Character {
     static ROLES = ["Fighter", "Healer", "Wizard", "Just Here"];
 
     constructor(name, role) {
@@ -144,6 +144,7 @@ const healer = createHealer("Alice");
 //PART 6 DEVELOPING SKILLS
 //create a duel for the both adventurers
 duel(opponent); {
+
     while (this.health > 50 && opponent.health > 50) {
         const thisRoll = this.roll();
         const opponentRoll = opponent.roll();
@@ -168,4 +169,5 @@ duel(opponent); {
 }
 const adventurer1 = new Adventurer("Adventurer 1", "Fighter");
 const adventurer2 = new Adventurer("Adventurer 2", "Wizard");
-console.log(adventurer1.duel(adventurer2));
+adventurer1.duel(adventurer2);
+console.log(roll);
