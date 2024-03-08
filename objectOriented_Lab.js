@@ -48,6 +48,20 @@ class Character {
     }
 }
 
-//creating a new instance of the Character class to see what the roll would say
+//creating a new instance of the Character class to see what the roll would say; robin rolled 12
 // const adventurer = new Character("Robin");
 // adventurer.roll();
+
+//re-creating Robin using the Character class 
+const robin = new Character("Robin");
+robin.inventory = ["sword", "portions", "artifact"];
+robin.companion = new Character("Leo");
+robin.companion.type = "Cat";
+robin.companion.companion = new Character("Frank");
+robin.companion.companion.type = "Flea";
+robin.companion.companion.inventory = ["small hat", "sunglasses"];
+
+//checking some companion rolls
+console.log(robin);
+robin.companion.roll();
+robin.companion.companion.roll();
