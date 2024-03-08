@@ -84,7 +84,7 @@ robin.companion.companion.roll(); //robin had 9, leo 18, and frank 15
     // }
 // }
 //I get errors when i run all these codes below???
-// const adventurer = new Adventurer("Robin", "Rogue");  //can't use adventurer, alreadt defined
+// const adventurer = new Adventurer("Robin", "Rogue");  //can't use adventurer, already defined
 // adventurer.scout();  //same with adventurer and scout undefined
 // super.roll();  //super is ubexpected
 // console.log(scout);   //scout nor defined
@@ -95,13 +95,13 @@ robin.companion.companion.roll(); //robin had 9, leo 18, and frank 15
 //PART 4 CLASS UNIFORMS
 // class Character {
     // static MAX_HEALTH = 100;
-
+// 
     // constructor(name) {
         // this.name = name;
         // this.health = Character.MAX_HEALTH;
         // this.inventory = [];
     // }
-
+// 
     // roll(mod = 0) {
         // const result = Math.floor(Math.random() * 20) + 1 + mod;
         // console.log(`${this.name} rolled a ${result}.` );
@@ -127,8 +127,17 @@ class Adventurer extends Character {
     }
 }
 
-const adventurers = new Adventurer("Robin", "Fighter");
-console.log(adventurer.scout);  //undefined
-console.log(`${this.name} is scouting ahead...`);   //undefined is scouting ahead
+// const adventurers = new Adventurer("Robin", "Fighter"); says can't redefine
+// console.log(adventurer.scout);  //undefined
+// console.log(`${this.name} is scouting ahead...`);   //undefined is scouting ahead
 
+//PART 5 GATHER YOUR PARTY
+//creat a healer adventurer
+function createHealer(name) {
+    return new Adventurer(name, "Healer");
+}
+
+//output here was Leo rolled a 14, Frank rolled a 14, Adv Alice, health 100 inv..., role healer
+const healer = createHealer("Alice");
+console.log(healer);
 
