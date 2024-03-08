@@ -69,20 +69,66 @@ robin.companion.companion.roll(); //robin had 9, leo 18, and frank 15
 //PART 3 CLASS FEATURES
 //extending a class, "child" inherits all paernt props
 //create a Adventurer class
+// class Adventurer extends Character {
+    // constructor (name, role) {
+        // super(name);
+        // Adventurers have specialized roles
+        // this.role = role;
+        // every Adventurer starts with a bed and 50 gold coins
+        // this.inventory.push("bedroll", "50 gold coins");
+    // }
+    // Adventurers have the ability to scout ahead of them
+    // scout () {
+        // console.log(`${this.name} is scouting ahead...`);
+        // super.roll();
+    // }
+// }
+//I get errors when i run all these codes below???
+// const adventurer = new Adventurer("Robin", "Rogue");  //can't use adventurer, alreadt defined
+// adventurer.scout();  //same with adventurer and scout undefined
+// super.roll();  //super is ubexpected
+// console.log(scout);   //scout nor defined
+
+
+//create a companion class with properties and methods specific to the companions
+
+//PART 4 CLASS UNIFORMS
+// class Character {
+    // static MAX_HEALTH = 100;
+
+    // constructor(name) {
+        // this.name = name;
+        // this.health = Character.MAX_HEALTH;
+        // this.inventory = [];
+    // }
+
+    // roll(mod = 0) {
+        // const result = Math.floor(Math.random() * 20) + 1 + mod;
+        // console.log(`${this.name} rolled a ${result}.` );
+    // }
+// }
+
 class Adventurer extends Character {
-    constructor (name, role) {
+    static ROLES = ["Fighter", "Healer", "Wizard", "Just Here"];
+
+    constructor(name, role) {
         super(name);
-        //Adventurers have specialized roles
+        if (!Adventurer.ROLES.includes(role)) {
+            throw new Error("Invalid role. Must bo one of: ${Adventurer.ROLES.join(", ")}");
+        }
+
         this.role = role;
-        //every Adventurer starts with a bed and 50 gold coins
-        this.inventory.push("bedroll", "50 gold coins");
+        this.inventory.push("bedroll", "50 gold coins", "rain gear");
     }
-    //Adventurers have the ability to scout ahead of them
-    scout () {
+
+    scout() {
         console.log(`${this.name} is scouting ahead...`);
         super.roll();
     }
 }
 
-//creat a companion class with properties and methods specific to the companions
+const adventurers = new Adventurer("Robin", "Fighter");
+console.log(adventurer.scout);  //undefined
+console.log(`${this.name} is scouting ahead...`);   //undefined is scouting ahead
+
 
