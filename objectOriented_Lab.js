@@ -93,21 +93,21 @@ robin.companion.companion.roll(); //robin had 9, leo 18, and frank 15
 //create a companion class with properties and methods specific to the companions
 
 //PART 4 CLASS UNIFORMS
-// class Character {
-    // static MAX_HEALTH = 100;
-// 
-    // constructor(name) {
-        // this.name = name;
-        // this.health = Character.MAX_HEALTH;
-        // this.inventory = [];
-    // }
-// 
-    // roll(mod = 0) {
-        // const result = Math.floor(Math.random() * 20) + 1 + mod;
-        // console.log(`${this.name} rolled a ${result}.` );
-    // }
-// }
+class Characters {
+    static MAX_HEALTH = 100;
 
+    constructor(name) {
+        this.name = name;
+        this.health = Character.MAX_HEALTH;
+        this.inventory = [];
+    }
+
+    roll(mod = 0) {
+        const result = Math.floor(Math.random() * 20) + 1 + mod;
+        console.log(`${this.name} rolled a ${result}.` );
+    }
+}
+// 
 class Adventurer extends Character {
     static ROLES = ["Fighter", "Healer", "Wizard", "Just Here"];
 
@@ -136,8 +136,36 @@ class Adventurer extends Character {
 function createHealer(name) {
     return new Adventurer(name, "Healer");
 }
-
+// 
 //output here was Leo rolled a 14, Frank rolled a 14, Adv Alice, health 100 inv..., role healer
 const healer = createHealer("Alice");
-console.log(healer);
+// console.log(healer);
+// 
+//PART 6 DEVELOPING SKILLS
+//create a duel for the both adventurers
+duel(opponent); {
+    while (this.health > 50 && opponent.health > 50) {
+        const thisRoll = this.roll();
+        const opponentRoll = opponent.roll();
 
+        if (thisRoll > opponentRoll) {
+            opponent.health -= 1;
+        } else {
+            this.health -= 1;
+        }
+
+        console.log(
+            `${this.name} rolled ${thisRoll}`,
+            `${opponent.name} rolled ${opponentRoll}`
+            `${this.name} health: ${this.health}}`
+            `${opponent.name} health ${opponent.health}`
+        );
+    }
+    const winner = this.health > 50 ? this : opponent;
+    console.log('The winner of the duel is ${winner.name}!'); 
+
+     
+}
+const adventurer1 = new Adventurer("Adventurer 1", "Fighter");
+const adventurer2 = new Adventurer("Adventurer 2", "Wizard");
+console.log(adventurer1.duel(adventurer2));
