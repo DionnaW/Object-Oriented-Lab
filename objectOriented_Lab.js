@@ -63,5 +63,26 @@ robin.companion.companion.inventory = ["small hat", "sunglasses"];
 
 //checking some companion rolls
 console.log(robin);
-robin.companion.roll();
-robin.companion.companion.roll();
+robin.companion.roll(); //robin had 8 & leo had 12
+robin.companion.companion.roll(); //robin had 9, leo 18, and frank 15
+
+//PART 3 CLASS FEATURES
+//extending a class, "child" inherits all paernt props
+//create a Adventurer class
+class Adventurer extends Character {
+    constructor (name, role) {
+        super(name);
+        //Adventurers have specialized roles
+        this.role = role;
+        //every Adventurer starts with a bed and 50 gold coins
+        this.inventory.push("bedroll", "50 gold coins");
+    }
+    //Adventurers have the ability to scout ahead of them
+    scout () {
+        console.log(`${this.name} is scouting ahead...`);
+        super.roll();
+    }
+}
+
+//creat a companion class with properties and methods specific to the companions
+
