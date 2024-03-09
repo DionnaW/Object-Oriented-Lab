@@ -113,8 +113,9 @@ class Adventurers extends Character {
 
     constructor(name, role) {
         super(name);
-        if (!Adventurer.ROLES.includes(role)) {
-            throw new Error("Invalid role. Must bo one of: ${Adventurer.ROLES.join(", ")}");
+        if (!ROLES.includes(role)) {
+            console.log("Role doesn't exist.");
+            throw new Error("Invalid role");
         }
 
         this.role = role;
